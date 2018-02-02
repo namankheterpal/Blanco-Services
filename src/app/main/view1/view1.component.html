@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <h1>Welcome to BLANCO registrations</h1>
+  <p>Please click on <a routerLink="../register"><strong>Register</strong></a> to start.</p>
+</div>
+
+<div class="container" *ngIf="list?.length">
+  <div class="row">
+    <div class="col">The few last created records are:</div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-list>
+        <mat-list-item *ngFor="let user of list" role="listitem">
+          <label>{{user.firstName}}  {{user.lastName}}</label>
+        </mat-list-item>
+
+      </mat-list>
+    </div>
+  </div>
+</div>

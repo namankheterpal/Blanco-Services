@@ -1,0 +1,44 @@
+<form [formGroup]="detailForm" class="form-container">
+  <mat-form-field>
+    <mat-select placeholder="Sex" formControlName="sex">
+      <mat-option *ngFor="let gender of genders" [value]="gender">
+        {{gender}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="detailForm.controls.sex.errors?.required">Please choose a sex</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Initials" formControlName="initials">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="First Name" formControlName="firstName">
+    <mat-error *ngIf="detailForm.controls.firstName.errors?.required">Please enter your first name.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Last Name" formControlName="lastName">
+    <mat-error *ngIf="detailForm.controls.lastName.errors?.required">Please enter your last name.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dateOfBirth">
+    <mat-error *ngIf="detailForm.controls.dateOfBirth.errors?.matDatepickerParse">Please fill in format mm/dd/yyyy.</mat-error>
+    <mat-error *ngIf="detailForm.controls.dateOfBirth.errors?.required">Please enter your birth date.</mat-error>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Nationality" formControlName="nationality">
+      <mat-option *ngFor="let country of countires" [value]="country">
+        {{country}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="detailForm.controls.nationality.errors?.required">Please choose a nation.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Social Security Number" formControlName="socialSecurityNumber">
+    <mat-error *ngIf="detailForm.controls.socialSecurityNumber.errors?.pattern">Please enter correct number.</mat-error>
+    <mat-error *ngIf="detailForm.controls.socialSecurityNumber.errors?.required">Please enter your social security number.</mat-error>
+  </mat-form-field>
+  <div align="right">
+    <button mat-button matStepperNext (click)="onSubmittion()">Next</button>
+  </div>
+</form>

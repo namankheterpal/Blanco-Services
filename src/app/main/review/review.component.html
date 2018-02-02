@@ -1,0 +1,92 @@
+<mat-accordion>
+  <mat-expansion-panel hideToggle="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <strong>Basic Details</strong>
+      </mat-panel-title>
+      <mat-panel-description>
+        <i>Please verify basic details you entered.</i>
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-list>
+    <mat-list-item role="listitem">
+      <label>Sex</label>
+      <label>{{this.userDetails?.sex}}</label>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label>Initials</label>
+      <label>{{this.userDetails?.initials}}</label>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label>First Name</label>
+      <label>{{this.userDetails?.firstName}}</label>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label>Last Name</label>
+      <label>{{this.userDetails?.lastName}}</label>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label>Date of Birth</label>
+      <label>{{this.userDetails?.dateOfBirth | date}}</label>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label>Nationality</label>
+      <label>{{this.userDetails?.nationality}}</label>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label>Social Security Number</label>
+      <label>{{this.userDetails?.socialSecurityNumber}}</label>
+    </mat-list-item>
+  </mat-list>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel hideToggle="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <strong>Address Details</strong>
+      </mat-panel-title>
+      <mat-panel-description>
+        <i>Please verify address details you entered.</i>
+        <mat-icon>map</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+  <mat-list>
+    <mat-list-item role="listitem">
+      <label>Address Line 1</label>
+      <label>{{this.userDetails?.address?.line1}}</label>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label>Address Line 2</label>
+      <label>{{this.userDetails?.address?.line2}}</label>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label>Postal Code</label>
+      <label>{{this.userDetails?.address?.postalCode}}</label>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label>City</label>
+      <label>{{this.userDetails?.address?.city}}</label>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label>Country</label>
+      <label>{{this.userDetails?.address?.country}}</label>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label>Phone Number</label>
+      <label>{{this.userDetails?.address?.phone}}</label>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label>Email</label>
+      <label>{{this.userDetails?.address?.email}}</label>
+    </mat-list-item>
+
+  </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div class="actions" align="right">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onConfirm()">Confirm</button>
+</div>

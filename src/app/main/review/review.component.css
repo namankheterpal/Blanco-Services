@@ -1,0 +1,32 @@
+mat-expansion-panel-header mat-panel-description {
+    justify-content: space-between;
+}  
+
+.actions {
+    margin: 20px;
+}
+mat-list-item label:first-of-type {
+    width: 40%;
+}
+
+mat-expansion-panel-header  strong{ 
+     white-space: nowrap;
+    
+}
+
+mat-list-item label + label {
+    width: 40%;
+}
+
+@media (max-width: 576px) {
+    i {
+        visibility: hidden;
+    } 
+    .mat-expansion-panel-header-description, .mat-expansion-panel-header-title{
+        margin-right:0;
+    }
+    
+.mat-expansion-panel-header {
+    align-items: baseline;
+    } 
+}

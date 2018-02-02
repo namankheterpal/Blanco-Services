@@ -1,0 +1,14 @@
+<mat-horizontal-stepper [linear]="isLinear">
+  <mat-step [completed]="detailsCompleted">
+    <ng-template matStepLabel>Basic Details</ng-template>
+    <app-details (status)='onDetailsStatus($event)' (onSubmit)="onDetailsSubmit($event)"></app-details>
+  </mat-step>
+  <mat-step [completed]="addressCompleted">
+    <ng-template matStepLabel>Address Details</ng-template>
+    <app-address (status)='onAddressStatus($event)' (onSubmit)="onAddressSubmit($event)"></app-address>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Review Details</ng-template>
+    <app-review [userDetails]="userDetails" (cancel)="onCancel()" (confirm)="onConfirm($event)" ></app-review>
+  </mat-step>
+</mat-horizontal-stepper>

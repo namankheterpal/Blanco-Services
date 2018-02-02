@@ -1,0 +1,48 @@
+<form [formGroup]="addressForm" class="form-container">
+  <mat-form-field>
+    <input matInput placeholder="Address Line 1" formControlName="line1" />
+    <mat-error *ngIf="addressForm.controls.line1.errors?.required">Please enter your address.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Address Line 2" formControlName="line2" />
+    <mat-error *ngIf="addressForm.controls.line2.errors?.required">Please enter your address.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Postal Code" formControlName="postalCode">
+    <mat-error *ngIf="addressForm.controls.postalCode.errors?.pattern">Please enter correct number.</mat-error>
+    <mat-error *ngIf="addressForm.controls.postalCode.errors?.required">Please enter your postal code.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="City" formControlName="city">
+      <mat-option *ngFor="let city of cities" [value]="city">
+        {{city}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="addressForm.controls.city.errors?.required">Please choose a city.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Country" formControlName="country">
+      <mat-option *ngFor="let country of countires" [value]="country">
+        {{country}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="addressForm.controls.country.errors?.required">Please choose a country</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput placeholder="Phone Number" formControlName="phone">
+      <mat-error *ngIf="addressForm.controls.phone.errors?.pattern">Please enter correct number.</mat-error>
+      <mat-error *ngIf="addressForm.controls.phone.errors?.required">Please enter your phone number.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="addressForm.controls.email.errors?.email">Please enter correct mail.</mat-error>
+        <mat-error *ngIf="addressForm.controls.email.errors?.required">Please enter your email address.</mat-error>
+      </mat-form-field>
+  <div align="right">
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button matStepperNext (click)="onSubmittion()">Next</button>
+  </div>
+</form>
